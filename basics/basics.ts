@@ -52,7 +52,52 @@ function printCoord(pt: {x: number, y: number}) {
     console.log(pt.y)
 }
 
+// we can also add optional properties in object types
+function printCoord2(pt: {x: number, y:number, z?: number}) {
+    console.log(pt.x)
+    console.log(pt.y)
+    if (pt.z) {
+        console.log(pt.z)
+    } 
+}
+
+// typescript also provides union types, which means you can define two possible types of a same variable or a argument
+function getANumber2(num: number | string) {
+    if (typeof(num) === "string") {
+        return Number(num)
+    }
+    return num
+}
 
 
+// type aliases 
+// to write more clean code insead of writing type annotation in function argument
+// we can create type aliases
+type Coordinates = {
+    x: number,
+    y: number,
+    z?: number
+}
+function printCoord3(pt: Coordinates) {
+    console.log(pt.x)
+    console.log(pt.y)
+    if (pt.z) {
+        console.log(pt.z)
+    }
+}
 
 
+// interface is another wat to name an object types
+interface Coordinates2 {
+    x: number,
+    y: number,
+    z?: number
+}
+
+function printCoord4(pt: Coordinates2) {
+    console.log(pt.x)
+    console.log(pt.y)
+    if (pt.z) {
+        console.log(pt.z)
+    }
+}
